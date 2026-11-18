@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>القرقشندي | منيو المندي والمشويات والطواجن</title>
+    <meta name="description" content="منيو مطعم القرقشندي في بورسعيد. المندي والمشويات والطواجن، وطلبك على واتساب." />
+    <meta property="og:title" content="القرقشندي | منيو المطعم" />
+    <meta property="og:description" content="اختار أكلك من منيو القرقشندي واطلب على واتساب." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700;800&display=swap" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <img class="hero__logo" src="assets/restaurant-logo.png" alt="شعار القرقشندي" />
+      <h1 class="hero__title">القرقشندي</h1>
+      <p class="hero__sub">مندي • مشويات • طواجن — بورسعيد</p>
+      <div class="social">
+        <a class="social__link social__link--fb" href="https://www.facebook.com/share/1C3ZFdUPrg/" target="_blank" rel="noopener" aria-label="فيسبوك"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.5-3.2h-3.2V8.7c0-.9.4-1.7 1.8-1.7h1.5V4.2S15.9 4 14.7 4c-2.6 0-4.2 1.5-4.2 4.4v2.4H7.8V14h2.7v8h3Z"/></svg><span>فيسبوك</span></a>
+        <a class="social__link social__link--tt" href="https://www.tiktok.com/@alqarqashandi.eg?_r=1&_t=ZS-9BVxRewTJW2" target="_blank" rel="noopener" aria-label="تيك توك"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3h-3.1v12.2a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.5a5.7 5.7 0 1 0 4.9 5.6V8.9a6.4 6.4 0 0 0 3.7 1.2V7a3.7 3.7 0 0 1-3.7-4Z"/></svg><span>تيك توك</span></a>
+      </div>
+    </header>
+
+    <section class="welcome">
+      <h2 class="welcome__title">أهلاً وسهلاً بيك في القرقشندي 👋</h2>
+      <p class="welcome__text">اختار اللي نفسك فيه، ضيفه للسلة، وابعت طلبك على واتساب وإحنا هنجهزهولك سخن.</p>
+    </section>
+
+    <div class="search">
+      <input class="field search__input" id="search" type="search" placeholder="دوّر على صنف..." autocomplete="off" />
+    </div>
+
+    <nav class="tabs" id="tabs" aria-label="أقسام المنيو"></nav>
+
+    <main class="menu">
+      <h2 class="menu__title" id="cat-title"></h2>
+      <p class="menu__note" id="cat-note" hidden></p>
+      <ul class="menu__list" id="items"></ul>
+    </main>
+
+    <footer class="contact" id="contact">
+      <h2 class="contact__title">تواصل معانا</h2>
+      <p class="contact__phone" dir="ltr">01070071158</p>
+      <p class="contact__hint">نفس الرقم على الانستجرام</p>
+      <div class="contact__social">
+      </div>
+      <div class="contact__btns">
+        <a class="contact__btn contact__btn--call" href="tel:+201070071158">اتصل بينا</a>
+        <a class="contact__btn contact__btn--wa" href="https://wa.me/201070071158" target="_blank" rel="noopener">واتساب</a>
+      </div>
+    </footer>
+
+    <a class="wa-float" href="https://wa.me/201070071158" target="_blank" rel="noopener" aria-label="واتساب">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.1c-.2.6-1.300 1.200-1.800 1.200-.5.1-1 .2-3.300-.7-2.800-1.100-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 1.900c.1.200.1.400 0 .5l-.4.600c-.1.200-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.8-1c.2-.3.400-.2.600-.1l1.800.9c.3.100.4.200.5.300.1.2.1.700-.1 1.300Z"/></svg>
+    </a>
+
+    <button class="cart-bar" id="cart-bar" type="button" hidden>
+      <span class="cart-bar__label">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        السلة (<span id="cart-count">0</span>)
+      </span>
+      <span><span id="cart-total">0</span> جنيه</span>
+    </button>
+
+    <div class="sheet-backdrop" id="sheet" hidden>
+      <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+        <div class="sheet__head">
+          <h2 id="sheet-title">طلبك</h2>
+          <button class="icon-btn" id="sheet-close" type="button" aria-label="إغلاق">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+        <ul class="sheet__lines" id="sheet-lines"></ul>
+        <p class="sheet__total"><span>الإجمالي</span><span><span id="sheet-total">0</span> جنيه</span></p>
+
+        <form class="order-form" id="order-form">
+          <label class="order-form__label">نوع الطلب</label>
+          <div class="type-toggle" id="type-toggle">
+            <button type="button" class="type-btn is-active" data-type="توصيل">توصيل</button>
+            <button type="button" class="type-btn" data-type="استلام من المطعم">استلام من المطعم</button>
+          </div>
+          <input class="field" id="f-name" placeholder="الاسم" autocomplete="name" />
+          <input class="field" id="f-phone" placeholder="رقم الموبايل" inputmode="tel" autocomplete="tel" />
+          <input class="field" id="f-address" placeholder="العنوان" autocomplete="street-address" />
+          <textarea class="field" id="f-notes" rows="2" placeholder="ملاحظات على الطلب (اختياري)"></textarea>
+          <button class="whatsapp-btn" id="send-btn" type="submit" disabled>ابعت الطلب على واتساب</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
