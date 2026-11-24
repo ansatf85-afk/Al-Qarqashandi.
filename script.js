@@ -78,13 +78,28 @@
     if (d) { list = list.filter(function (x) { return String(x.id) !== d.dataset.id }); save(); drawList() }
     else if (c && confirm('مسح كل التسويات؟')) { list = []; save(); drawList() }
   });
+  /* إرسال التسوية على واتساب كأنها طلب عادي */
+  function sendWhatsApp(x) {
+    var num = (typeof WHATSAPP_NUMBER !== 'undefined') ? WHATSAPP_NUMBER : '201070071158';
+    var lines = ['طلب جديد (تسوية) من منيو القرقشندي', '',
+      'الاسم: ' + x.name, 'الصنف: ' + x.type, 'الكمية: ' + x.qty];
+    if (x.weight) lines.push('الوزن: ' + fm(x.weight));
+    if (x.kilo) lines.push('سعر الكيلو: ' + fm(x.kilo));
+    if (x.price > 0) lines.push('السعر: ' + fm(x.price) + ' جنيه');
+    if (x.notes) lines.push('ملاحظات: ' + x.notes);
+    var url = 'https://wa.me/' + num + '?text=' + encodeURIComponent(lines.join('\n'));
+    var w = window.open(url, '_blank');
+    if (!w) window.location.href = url;
+  }
   var f = $('st-form');
   f.addEventListener('input', calc);
   f.addEventListener('submit', function (e) {
     e.preventDefault();
     var w = num('st-weight'), k = num('st-kilo');
-    list.unshift({ id: Date.now(), name: $('st-name').value.trim(), type: $('st-type').value.trim(), qty: $('st-qty').value || '1', notes: $('st-notes').value.trim(), weight: w, kilo: k, price: w * k });
+    var it = { id: Date.now(), name: $('st-name').value.trim(), type: $('st-type').value.trim(), qty: $('st-qty').value || '1', notes: $('st-notes').value.trim(), weight: w, kilo: k, price: w * k };
+    list.unshift(it);
     save(); f.reset(); $('st-qty').value = 1; calc(); drawList();
+    sendWhatsApp(it);
   });
   drawList();
 })();
