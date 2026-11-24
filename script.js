@@ -739,7 +739,9 @@ function startMenu() {
   document.querySelectorAll(".type-btn").forEach((b) =>
     b.addEventListener("click", () => { state.type = b.dataset.type; updateForm(); })
   );
-  ["f-name", "f-phone", "f-address"].forEach((id) => $(id).addEventListener("input", updateForm));
+  ["f-name", "f-phone", "f-address"].forEach((id) => {
+    ["input", "change", "keyup", "blur"].forEach((ev) => $(id).addEventListener(ev, updateForm));
+  });
 
   $("order-form").addEventListener("submit", (e) => {
     e.preventDefault();
@@ -750,7 +752,10 @@ function startMenu() {
       notes: $("f-notes").value.trim(),
       type: state.type,
     });
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    // لو المتصفح منع فتح نافذة جديدة (شائع على الموبايل) نفتح الرابط في نفس الصفحة
+    const w = window.open(url, "_blank");
+    if (!w) window.location.href = url;
   });
 
   $("search").addEventListener("input", (e) => { state.query = e.target.value; renderItems(); });
