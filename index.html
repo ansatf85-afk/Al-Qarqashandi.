@@ -14,37 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700;800&display=swap" />
     <link rel="stylesheet" href="style.css" />
-    <style>
-      /* ===== تبويب التسويات ===== */
-      .settle-view { max-width: 1100px; margin: 0 auto; padding: 16px 16px 120px }
-      .settle-view[hidden] { display: none }
-      .settle-title { font-size: 1.4rem; margin: 8px 0 14px; display: flex; justify-content: space-between; align-items: center; gap: 10px }
-      .settle-count { font-size: .8rem; opacity: .7; font-weight: 600 }
-      .settle-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start }
-      .st-box { border: 1px solid rgba(128, 128, 128, .3); background: rgba(128, 128, 128, .08); border-radius: 16px; padding: 16px; min-width: 0 }
-      .st-box h3 { font-size: 1.05rem; margin: 0 0 12px }
-      .st-form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px }
-      .st-form > div { min-width: 0 }
-      .st-form .full { grid-column: 1 / -1 }
-      .st-form label { display: block; font-size: .8rem; opacity: .75; margin-bottom: 4px }
-      .st-form .field { width: 100%; box-sizing: border-box }
-      .st-price { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 14px; border: 1px dashed currentColor; border-radius: 12px; font-weight: 700; font-size: .85rem }
-      .st-price b { font-size: 1.25rem }
-      .st-btn { width: 100%; padding: 12px; border: 0; border-radius: 12px; font: inherit; font-weight: 800; cursor: pointer; background: var(--accent, var(--primary, #d4a017)); color: #fff }
-      .st-list { display: flex; flex-direction: column; gap: 10px; max-height: 560px; overflow-y: auto }
-      .st-item { padding: 12px 14px; border: 1px solid rgba(128, 128, 128, .3); border-radius: 14px; background: rgba(128, 128, 128, .06) }
-      .st-item .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px }
-      .st-item .nm { font-weight: 800; word-break: break-word }
-      .st-item .pr { flex-shrink: 0; font-weight: 800 }
-      .st-item .meta { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 6px; font-size: .82rem; opacity: .8 }
-      .st-item .note { margin-top: 6px; font-size: .82rem; opacity: .8; white-space: pre-wrap; word-break: break-word }
-      .st-item .del { margin-top: 8px; background: none; border: 1px solid rgba(128, 128, 128, .4); color: #e5484d; border-radius: 8px; padding: 3px 12px; font: inherit; font-size: .78rem; font-weight: 700; cursor: pointer }
-      .st-total { display: flex; justify-content: space-between; margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(128, 128, 128, .3); font-weight: 800; font-size: 1.05rem }
-      .st-clear { width: 100%; margin-top: 10px; background: none; border: 1px solid rgba(128, 128, 128, .4); color: #e5484d; padding: 8px; border-radius: 10px; font: inherit; font-weight: 700; cursor: pointer }
-      .st-empty { text-align: center; opacity: .6; padding: 26px 0 }
-      @media (max-width: 760px) { .settle-grid { grid-template-columns: 1fr } .st-list { max-height: none } }
-      @media (max-width: 380px) { .st-form { grid-template-columns: 1fr } }
-    </style>
+    <link rel="stylesheet" href="settle.css" />
   </head>
   <body>
     <header class="hero">
@@ -56,24 +26,24 @@
         <a class="social__link social__link--tt" href="https://www.tiktok.com/@alqarqashandi.eg?_r=1&_t=ZS-9BVxRewTJW2" target="_blank" rel="noopener" aria-label="تيك توك"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3h-3.1v12.2a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.5a5.7 5.7 0 1 0 4.9 5.6V8.9a6.4 6.4 0 0 0 3.7 1.2V7a3.7 3.7 0 0 1-3.7-4Z"/></svg><span>تيك توك</span></a>
       </div>
     </header>
- 
+
     <section class="welcome">
       <h2 class="welcome__title">أهلاً وسهلاً بيك في القرقشندي 👋</h2>
       <p class="welcome__text">اختار اللي نفسك فيه، ضيفه للسلة، وابعت طلبك على واتساب وإحنا هنجهزهولك سخن.</p>
     </section>
- 
+
     <div class="search">
       <input class="field search__input" id="search" type="search" placeholder="دوّر على صنف..." autocomplete="off" />
     </div>
- 
+
     <nav class="tabs" id="tabs" aria-label="أقسام المنيو"></nav>
- 
+
     <main class="menu">
       <h2 class="menu__title" id="cat-title"></h2>
       <p class="menu__note" id="cat-note" hidden></p>
       <ul class="menu__list" id="items"></ul>
     </main>
- 
+
     <section class="settle-view" id="settle-view" hidden>
       <h2 class="settle-title"><span>التسويات</span><span class="settle-count" id="st-count"></span></h2>
       <div class="settle-grid">
@@ -96,7 +66,7 @@
         </div>
       </div>
     </section>
- 
+
     <footer class="contact" id="contact">
       <h2 class="contact__title">تواصل معانا</h2>
       <p class="contact__phone" dir="ltr">01070071158</p>
@@ -108,11 +78,11 @@
         <a class="contact__btn contact__btn--wa" href="https://wa.me/201070071158" target="_blank" rel="noopener">واتساب</a>
       </div>
     </footer>
- 
+
     <a class="wa-float" href="https://wa.me/201070071158" target="_blank" rel="noopener" aria-label="واتساب">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.1c-.2.6-1.300 1.200-1.800 1.200-.5.1-1 .2-3.300-.7-2.800-1.100-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 1.900c.1.200.1.400 0 .5l-.4.600c-.1.200-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.8-1c.2-.3.400-.2.600-.1l1.800.9c.3.100.4.200.5.300.1.2.1.700-.1 1.300Z"/></svg>
     </a>
- 
+
     <button class="cart-bar" id="cart-bar" type="button" hidden>
       <span class="cart-bar__label">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
@@ -120,7 +90,7 @@
       </span>
       <span><span id="cart-total">0</span> جنيه</span>
     </button>
- 
+
     <div class="sheet-backdrop" id="sheet" hidden>
       <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
         <div class="sheet__head">
@@ -131,7 +101,7 @@
         </div>
         <ul class="sheet__lines" id="sheet-lines"></ul>
         <p class="sheet__total"><span>الإجمالي</span><span><span id="sheet-total">0</span> جنيه</span></p>
- 
+
         <form class="order-form" id="order-form">
           <label class="order-form__label">نوع الطلب</label>
           <div class="type-toggle" id="type-toggle">
@@ -146,90 +116,8 @@
         </form>
       </div>
     </div>
- 
+
     <script src="script.js"></script>
-    <script>
-      /* ===== تبويب التسويات (بجانب المندي) ===== */
-      (function () {
-        var tabs = document.getElementById('tabs'), menu = document.querySelector('main.menu'),
-          view = document.getElementById('settle-view'), search = document.querySelector('.search');
-        if (!tabs || !menu || !view) return;
-        var $ = function (id) { return document.getElementById(id) };
-        var LS = 'qarqashandi-settle', list = [], on = false, btn = null, activeCls = 'is-active', prev = [];
-        try { list = (JSON.parse(localStorage.getItem(LS) || '[]') || []).filter(function (x) { return x && x.id }) } catch (e) { list = [] }
-        var save = function () { try { localStorage.setItem(LS, JSON.stringify(list)) } catch (e) { } };
-        var hx = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] }) };
-        var fm = function (n) { return String(Math.round((+n || 0) * 100) / 100) };
-        var norm = function (t) { return (t || '').replace(/[ً-ْـ]/g, '').replace(/[ىئ]/g, 'ي').replace(/\s+/g, ' ').trim() };
- 
-        function applyActive() {
-          if (!btn) return;
-          Array.prototype.forEach.call(tabs.querySelectorAll('button, a'), function (el) {
-            if (el === btn) return;
-            if (el.className && /active|selected/.test(el.className)) {
-              el.className.split(/\s+/).forEach(function (c) { if (/active|selected/.test(c)) { activeCls = c; el.classList.remove(c); if (prev.indexOf(el) < 0) prev.push(el) } });
-            }
-          });
-          btn.classList.add(activeCls);
-        }
-        function setOn(v) {
-          on = v;
-          view.hidden = !v;
-          menu.style.display = v ? 'none' : '';
-          if (search) search.style.display = v ? 'none' : '';
-          if (v) { applyActive(); drawList(); }
-          else {
-            if (btn) btn.classList.remove(activeCls);
-            prev.forEach(function (el) { el.classList.add(activeCls) });
-            prev = [];
-          }
-        }
-        function ensureBtn() {
-          if (btn && tabs.contains(btn)) return;
-          var all = tabs.querySelectorAll('button, a'); if (!all.length) return;
-          if (!btn) {
-            btn = document.createElement('button'); btn.type = 'button'; btn.id = 'tab-settle'; btn.textContent = 'التسويات';
-            btn.className = all[0].className.split(/\s+/).filter(function (c) { return c && !/active|selected/.test(c) }).join(' ');
-            btn.addEventListener('click', function (e) { e.stopPropagation(); setOn(true); });
-          }
-          var mandi = null;
-          Array.prototype.forEach.call(all, function (el) { if (!mandi && /مندي/.test(norm(el.textContent))) mandi = el });
-          if (mandi) mandi.parentNode.insertBefore(btn, mandi.nextSibling); else all[all.length - 1].parentNode.appendChild(btn);
-          if (on) applyActive();
-        }
-        tabs.addEventListener('click', function (e) { if (btn && !btn.contains(e.target) && on) setOn(false) }, true);
-        var se = $('search'); if (se) se.addEventListener('input', function () { if (on) setOn(false) });
-        new MutationObserver(ensureBtn).observe(tabs, { childList: true, subtree: true });
-        ensureBtn();
- 
-        function calc() { var p = (parseFloat($('st-weight').value) || 0) * (parseFloat($('st-kilo').value) || 0); $('st-price').textContent = fm(p); return p }
-        function drawList() {
-          var box = $('st-list'), tot = list.reduce(function (s, x) { return s + x.price }, 0);
-          $('st-count').textContent = list.length + ' تسوية';
-          box.innerHTML = list.length
-            ? '<div class="st-list">' + list.map(function (x) {
-              return '<div class="st-item"><div class="top"><div class="nm">' + hx(x.name) + '</div><div class="pr">' + fm(x.price) + ' جنيه</div></div>' +
-                '<div class="meta"><span>الصنف: ' + hx(x.type) + '</span><span>الكمية: ' + hx(x.qty) + '</span><span>الوزن: ' + fm(x.weight) + ' كجم</span><span>سعر الكيلو: ' + fm(x.kilo) + '</span></div>' +
-                (x.notes ? '<div class="note">' + hx(x.notes) + '</div>' : '') +
-                '<button class="del" type="button" data-id="' + x.id + '">حذف</button></div>';
-            }).join('') + '</div><div class="st-total"><span>إجمالي التسويات</span><span>' + fm(tot) + ' جنيه</span></div><button class="st-clear" type="button" id="st-clear">مسح الكل</button>'
-            : '<div class="st-empty">لا توجد تسويات مسجلة بعد</div>';
-        }
-        $('st-list').addEventListener('click', function (e) {
-          var d = e.target.closest('.del'), c = e.target.closest('#st-clear');
-          if (d) { list = list.filter(function (x) { return String(x.id) !== d.dataset.id }); save(); drawList() }
-          else if (c && confirm('مسح كل التسويات؟')) { list = []; save(); drawList() }
-        });
-        var f = $('st-form');
-        f.addEventListener('input', calc);
-        f.addEventListener('submit', function (e) {
-          e.preventDefault();
-          var w = parseFloat($('st-weight').value) || 0, k = parseFloat($('st-kilo').value) || 0;
-          list.unshift({ id: Date.now(), name: $('st-name').value.trim(), type: $('st-type').value.trim(), qty: $('st-qty').value || '1', notes: $('st-notes').value.trim(), weight: w, kilo: k, price: w * k });
-          save(); f.reset(); $('st-qty').value = 1; calc(); drawList();
-        });
-        drawList();
-      })();
-    </script>
+    <script src="settle.js"></script>
   </body>
 </html>
