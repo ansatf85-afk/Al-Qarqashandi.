@@ -70,7 +70,7 @@
           '<div class="meta"><span>الصنف: ' + hx(x.type) + '</span><span>الكمية: ' + hx(x.qty) + '</span>' + (x.weight ? '<span>الوزن: ' + fm(x.weight) + '</span>' : '') + (x.kilo ? '<span>سعر الكيلو: ' + fm(x.kilo) + '</span>' : '') + '</div>' +
           (x.notes ? '<div class="note">' + hx(x.notes) + '</div>' : '') +
           '</div>';
-      }).join('') + '</div>' + (tot > 0 ? '<div class="st-total"><span>إجمالي التسويات</span><span>' + fm(tot) + ' جنيه</span></div>' : '') + 
+      }).join('') + '</div>' + (tot > 0 ? '<div class="st-total"><span>إجمالي التسويات</span><span>' + fm(tot) + ' جنيه</span></div>' : '')
       : '<div class="st-empty">لا توجد تسويات مسجلة بعد</div>';
   }
   $('st-list').addEventListener('click', function (e) {
