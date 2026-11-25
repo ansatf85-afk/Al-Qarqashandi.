@@ -69,7 +69,7 @@
         return '<div class="st-item"><div class="top"><div class="nm">' + hx(x.name) + '</div>' + (x.price > 0 ? '<div class="pr">' + fm(x.price) + ' جنيه</div>' : '') + '</div>' +
           '<div class="meta"><span>الصنف: ' + hx(x.type) + '</span><span>الكمية: ' + hx(x.qty) + '</span>' + (x.weight ? '<span>الوزن: ' + fm(x.weight) + '</span>' : '') + (x.kilo ? '<span>سعر الكيلو: ' + fm(x.kilo) + '</span>' : '') + '</div>' +
           (x.notes ? '<div class="note">' + hx(x.notes) + '</div>' : '') +
-          '<button class="del" type="button" data-id="' + x.id + '">حذف</button></div>';
+          '</div>';
       }).join('') + '</div>' + (tot > 0 ? '<div class="st-total"><span>إجمالي التسويات</span><span>' + fm(tot) + ' جنيه</span></div>' : '') + '<button class="st-clear" type="button" id="st-clear">مسح الكل</button>'
       : '<div class="st-empty">لا توجد تسويات مسجلة بعد</div>';
   }
